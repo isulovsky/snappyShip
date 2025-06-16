@@ -1,5 +1,6 @@
 # snappyShip
-automatic grid generation for ship calm water computations using snappyHexMesh and python script. Ship parameters are given in system/shipDict. 
+automatic grid generation for ship calm water computations using snappyHexMesh and python script. This case study involves simple geometry for a parametric Wigley hull. Ship parameters are given in system/shipDict.
+This automation procedures reduces turnaround time mostly in terms of creation of the kelvin wake geometry and anisotropic refinements.
 
 
 
