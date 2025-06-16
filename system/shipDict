@@ -1,0 +1,72 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      shipDict;
+}
+
+shipParameters
+{
+    // Ship dimensions
+    length      #eval {round(6)}; //duljina broda, da je dijeljivo sa brojem 6 ako je moguće
+    beam        0.25; //pola širine broda 
+    draft       0.307; //gaz
+    freeboard   0.307;  //koordinata razme
+
+    
+
+    // Domain dimensions calculated from ship length
+    xMin        #eval {round(-3.0 * $length)};    // 2L upstream
+    xMax        #eval {round(2.5 * $length)};     // 3L downstream
+    yMin        #eval {round(-3 * $length)};    // 1.5L to port
+    yMax        #eval {round(0.0)};     // 1.5L to starboard
+    zMin        #eval {round(-1.0 * $length)};    // 1L below
+    zMax        #eval {round(1 * $length)};     // 1L above
+
+    //grid Size of 6 blocks per ship length, coarse mesh setting
+    h #eval {round($length/6)}; //duljina jedne ćelije 
+
+    xBlock #eval {round((mag($xMin)+mag($xMax))/$h)};
+    yBlock #eval {round((mag($yMin)+mag($yMax))/$h)};
+    zBlockUpper #eval {round(mag($zMax)/$h)};
+    zBlockLower #eval {round(mag($zMin)/$h)};
+
+    waterLevel 0;
+    
+    // Mesh parameters
+    baseSize    1;
+    refinementLevel 3;
+
+    // Y+ and boundary layer parameters
+    targetYPlus     150.0;        // Target y+ value
+    shipVelocity   2.082;        // Ship velocity [m/s]
+    kinematicViscosity 1.0e-6;  // Water kinematic viscosity [m²/s]
+    
+    // Reynolds number calculation
+    Re #eval {$shipVelocity * $length / $kinematicViscosity};
+    
+    // Skin friction coefficient (flat plate approximation)
+    Cf #eval {0.075 / pow(log10($Re) - 2, 2)};
+    
+    // Wall shear stress
+    tauWall #eval {0.5 * 1025 * pow($shipVelocity, 2) * $Cf}; // rho = 1025 kg/m³ for seawater
+    
+    // Friction velocity
+    uTau #eval {sqrt($tauWall / 1025)};
+    
+    // First layer thickness based on y+
+    firstLayerThickness #eval {2*$targetYPlus * $kinematicViscosity / $uTau};
+    
+    // Growth ratio and number of layers
+    growthRatio     1.2;
+    nLayers         5;
+    
+    // Total boundary layer thickness (approximation)
+    totalBLThickness #eval {$firstLayerThickness * (pow($growthRatio, $nLayers) - 1) / ($growthRatio - 1)};
+
+    //parameters for snappyHexMesh and refineFreeSurface 
+}
+
+// ----------------------------------------------------------------

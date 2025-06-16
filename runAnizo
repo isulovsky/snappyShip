@@ -1,0 +1,20 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Get application name
+application=`getApplication`
+
+#ANIZOTROPNO PROFINJAVANJE
+for i in 1 2 3 4 5 6
+do
+    runParallel -s $i \
+        topoSet -dict system/refineFreeSurface/topoSetDict.${i}
+
+    runParallel -s $i \
+        refineMesh -dict system/refineFreeSurface/refineMeshDict
+done
+
+# ----------------------------------------------------------------- end-of-file

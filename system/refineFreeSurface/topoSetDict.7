@@ -1,0 +1,207 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+
+| =========                 |                                                 |
+
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+
+|  \\    /   O peration     | Version:  4.x                                   |
+
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+
+|    \\/     M anipulation  |                                                 |
+
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+
+{
+
+    version     2.0;
+
+    format      ascii;
+
+    class       dictionary;
+
+    location    "system";
+
+    object      topoSetDict.1;
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "$FOAM_CASE/system/shipDict";
+help $shipParameters.h;
+helpNeg #eval {$shipParameters.h/-8};
+helpPos #eval {$shipParameters.h/8};
+
+actions
+
+(
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  new;
+
+        source  zoneToCell;
+
+        sourceInfo
+
+        {
+
+            name "zone0";
+
+        }
+
+    }
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  add;
+
+        source  zoneToCell;
+
+        sourceInfo
+
+        {
+
+            name "zone1";
+
+        }
+
+    }
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  add;
+
+        source  zoneToCell;
+
+        sourceInfo
+
+        {
+
+            name "zone2";
+
+        }
+
+    }
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  add;
+
+        source  zoneToCell;
+
+        sourceInfo
+
+        {
+
+            name "zone3";
+
+        }
+
+    }
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  add;
+
+        source  zoneToCell;
+
+        sourceInfo
+
+        {
+
+            name "zone4";
+
+        }
+
+    }
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  add;
+
+        source  zoneToCell;
+
+        sourceInfo
+
+        {
+
+            name "zone5";
+
+        }
+
+    }
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  add;
+
+        source  zoneToCell;
+
+        sourceInfo
+
+        {
+
+            name "zone6";
+
+        }
+
+    }
+
+    {
+
+        name    c0;
+
+        type    cellSet;
+
+        action  subset;
+
+        source  boxToCell;
+
+        sourceInfo
+
+        {
+
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+
+        }
+
+    }
+
+);
+
+
+
+// ************************************************************************* //
+

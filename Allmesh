@@ -1,0 +1,28 @@
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions
+
+cd system
+chmod +x ./*
+./kelvinFoam.py
+chmod +x ./*
+surfaceTransformPoints -scale "(1 1 0.5)" kelvin3.stl kelvin3.stl
+surfaceTransformPoints -scale "(1 1 0.25)" kelvin4.stl kelvin4.stl
+cd ..
+mv system/kelvin2.stl constant/triSurface
+mv system/kelvin3.stl constant/triSurface
+mv system/kelvin4.stl constant/triSurface
+
+runApplication surfaceFeatureExtract
+runApplication blockMesh
+runApplication -s castellated \
+    snappyHexMesh -dict system/snappy/snappyHexMeshDict-castellated -overwrite
+./refine
+runApplication -s snap \
+    snappyHexMesh -dict system/snappy/snappyHexMeshDict-snap -overwrite
+
+runApplication -s layer \
+   snappyHexMesh -dict system/snappy/snappyHexMeshDict-layer -overwrite 
+
+    
+checkMesh
+touch wigley.foam
+

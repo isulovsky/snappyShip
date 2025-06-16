@@ -1,0 +1,18 @@
+meshQualityControls
+{
+    #include "meshQualityDict"
+
+    // Advanced
+    nSmoothScale 4;
+    errorReduction 0.75;
+}
+
+// OutputData
+writeFlags
+(
+    scalarLevels
+    layerSets
+    layerFields     // write volScalarField for layer coverage
+);
+
+mergeTolerance 1E-6;

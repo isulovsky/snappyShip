@@ -1,0 +1,18 @@
+// Settings for the snapping.
+snapControls
+{
+    nSmoothPatch 3;
+    
+    nSmoothInternal $nSmoothPatch;
+
+    tolerance 1.0;
+
+    nSolveIter 80;
+
+    nRelaxIter 11;
+
+    nFeatureSnapIter 5;
+    
+        implicitFeatureSnap false;
+        explicitFeatureSnap true;
+}

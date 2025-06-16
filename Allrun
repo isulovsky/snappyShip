@@ -1,0 +1,23 @@
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions
+#surfaceFeatures
+./Allmesh
+rm -r 0
+cp -r 0.orig 0
+runApplication setFields
+runApplication decomposePar
+mpirun -np 8 renumberMesh -parallel -overwrite >log.renumberMesh
+mpirun -np 8 interIsoFoam -parallel > log.IsoVal
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,349 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      topoSetDict.1;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "$FOAM_CASE/system/shipDict";
+helpNeg #eval {$shipParameters.h*-1};
+helpPos $shipParameters.h;
+actions
+(
+    
+// 0 level
+    
+    {
+        name    c0;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c0;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 0;
+            max 0;
+        }
+    }
+    {
+        name    zone0;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c0;
+        }
+    }
+
+
+// 1 level
+
+    {
+        name    c1;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c1;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 1;
+            max 1;
+        }
+    }
+    {
+        name    zone1;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c1;
+        }
+    }
+    
+    
+// 2 level
+    
+    {
+        name    c2;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c2;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 2;
+            max 2;
+        }
+    }
+    {
+        name    zone2;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c2;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+// 3 level
+
+    {
+        name    c3;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c3;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 3;
+            max 3;
+        }
+    }
+    {
+        name    zone3;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c3;
+        }
+    }
+
+    
+// 4 level
+    {
+        name    c4;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c4;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 4;
+            max 4;
+        }
+    }
+    {
+        name    zone4;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c4;
+        }
+    }
+
+    
+
+// 5 level
+    
+    {
+        name    c5;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c5;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 5;
+            max 5;
+        }
+    }
+    {
+        name    zone5;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c5;
+        }
+    }
+    
+    
+// 6 level
+    
+    {
+        name    c6;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c6;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 6;
+            max 6;
+        }
+    }
+    {
+        name    zone6;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c6;
+        }
+    }
+// 7 level
+    
+    {
+        name    c7;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c7;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 7;
+            max 7;
+        }
+    }
+    {
+        name    zone7;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c7;
+        }
+    }
+// 8 level
+    
+    {
+        name    c8;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1000 -1000 $helpNeg) (1000 1000 $helpPos);
+        }
+    }
+    {
+        name    c8;
+        type    cellSet;
+        action  subset;
+        source  fieldToCell;
+        sourceInfo
+        {
+            field cellLevel;
+            min 8;
+            max 8;
+        }
+    }
+    {
+        name    zone8;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set c8;
+        }
+    }
+    
+);
+
+// ************************************************************************* //

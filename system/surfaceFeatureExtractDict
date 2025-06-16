@@ -1,0 +1,182 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      surfaceFeatureExtractDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+hull.stl
+{
+    // How to obtain raw features (extractFromFile || extractFromSurface)
+    extractionMethod    extractFromSurface;
+
+    // Mark edges whose adjacent surface normals are at an angle less
+    // than includedAngle as features
+    // - 0  : selects no edges
+    // - 180: selects all edges
+    includedAngle       125;
+
+    subsetFeatures
+    {
+        // Keep nonManifold edges (edges with >2 connected faces)
+        nonManifoldEdges       yes;
+
+        // Keep open edges (edges with 1 connected face)
+        openEdges       yes;
+    }
+
+
+    // Write options
+
+    // Write features to obj format for postprocessing
+    writeObj            no;
+}
+/*
+append.stl
+{
+    // How to obtain raw features (extractFromFile || extractFromSurface)
+    extractionMethod    extractFromSurface;
+
+    // Mark edges whose adjacent surface normals are at an angle less
+    // than includedAngle as features
+    // - 0  : selects no edges
+    // - 180: selects all edges
+    includedAngle       110;
+
+    subsetFeatures
+    {
+        // Keep nonManifold edges (edges with >2 connected faces)
+        nonManifoldEdges       yes;
+
+        // Keep open edges (edges with 1 connected face)
+        openEdges       yes;
+    }
+
+
+    // Write options
+
+    // Write features to obj format for postprocessing
+    writeObj            no;
+}
+deck.stl
+{
+    // How to obtain raw features (extractFromFile || extractFromSurface)
+    extractionMethod    extractFromSurface;
+
+    // Mark edges whose adjacent surface normals are at an angle less
+    // than includedAngle as features
+    // - 0  : selects no edges
+    // - 180: selects all edges
+    includedAngle       125;
+
+    subsetFeatures
+    {
+        // Keep nonManifold edges (edges with >2 connected faces)
+        nonManifoldEdges       yes;
+
+        // Keep open edges (edges with 1 connected face)
+        openEdges       yes;
+    }
+
+
+    // Write options
+
+    // Write features to obj format for postprocessing
+    writeObj            no;
+
+}
+
+*/
+
+kelvin2.stl
+{
+    // How to obtain raw features (extractFromFile || extractFromSurface)
+    extractionMethod    extractFromSurface;
+
+    // Mark edges whose adjacent surface normals are at an angle less
+    // than includedAngle as features
+    // - 0  : selects no edges
+    // - 180: selects all edges
+    includedAngle       150;
+
+    subsetFeatures
+    {
+        // Keep nonManifold edges (edges with >2 connected faces)
+        nonManifoldEdges       no;
+
+        // Keep open edges (edges with 1 connected face)
+        openEdges       no;
+    }
+
+
+    // Write options
+
+    // Write features to obj format for postprocessing
+    writeObj            no;
+}
+kelvin3.stl
+{
+    // How to obtain raw features (extractFromFile || extractFromSurface)
+    extractionMethod    extractFromSurface;
+
+    // Mark edges whose adjacent surface normals are at an angle less
+    // than includedAngle as features
+    // - 0  : selects no edges
+    // - 180: selects all edges
+    includedAngle       150;
+
+    subsetFeatures
+    {
+        // Keep nonManifold edges (edges with >2 connected faces)
+        nonManifoldEdges       no;
+
+        // Keep open edges (edges with 1 connected face)
+        openEdges       no;
+    }
+
+
+    // Write options
+
+    // Write features to obj format for postprocessing
+    writeObj            no;
+}
+kelvin4.stl
+{
+    // How to obtain raw features (extractFromFile || extractFromSurface)
+    extractionMethod    extractFromSurface;
+
+    // Mark edges whose adjacent surface normals are at an angle less
+    // than includedAngle as features
+    // - 0  : selects no edges
+    // - 180: selects all edges
+    includedAngle       150;
+
+    subsetFeatures
+    {
+        // Keep nonManifold edges (edges with >2 connected faces)
+        nonManifoldEdges       no;
+
+        // Keep open edges (edges with 1 connected face)
+        openEdges       no;
+    }
+
+
+    // Write options
+
+    // Write features to obj format for postprocessing
+    writeObj            no;
+}
+
+
+
+
+// ************************************************************************* //

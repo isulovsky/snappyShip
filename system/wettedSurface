@@ -1,0 +1,11 @@
+    wettedSurface
+    {
+        type            wettedSurfaceArea;
+        libs           ("libwettedSurfaceArea.so");
+        
+        alphaName      "alpha.water";
+        patchName      "hull";
+        
+        writeControl   timeStep;
+        writeInterval  1;
+    }

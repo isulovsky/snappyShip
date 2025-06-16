@@ -1,0 +1,14 @@
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions
+
+for i in 1 2 3 4 5 6 7
+do
+   runApplication -s $i \
+        topoSet -dict system/refineFreeSurface/topoSetDict.${i}
+   runApplication -s $i \
+        refineMesh -dict system/refineFreeSurface/refineMeshDict -overwrite
+done
+
+rm -f constant/polyMesh/cellLevel
+rm -f constant/polyMesh/pointLevel
+rm -f constant/polyMesh/level0Edge
+
